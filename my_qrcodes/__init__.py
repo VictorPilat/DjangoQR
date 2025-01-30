@@ -1,0 +1,1 @@
+from .views import render_my_qrcodes

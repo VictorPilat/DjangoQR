@@ -1,0 +1,146 @@
+body{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #E8ECFC;
+}
+
+
+
+
+
+header{
+  height: 50px;
+  font-family: Century Gothic, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #4466FF;
+  padding: 0 40px 0 40px;
+
+}
+.qr-code-links{
+  width: 325px;
+  height: 25px;
+  background-color: #4466FF;
+  display: flex;
+  align-items: center;
+  gap: 21px;
+ 
+}
+.login-links{
+  width: 369px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+
+header a{
+  text-decoration: none;
+  color: white;
+}
+
+/* .links a:visited {
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.links a:active {
+  text-decoration: underline;
+} */
+
+
+
+footer{
+  height: 204px;
+  /* height: auto; */
+  display: flex;
+  gap: 99px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 10px 0;
+  gap: 204px;
+  background-color: #4466FF;
+  color: #BBE9F7;
+  
+}
+.contacts-icons{
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 29px;
+}
+
+.contacts-icons img{
+  width: 40px;
+  height: 40px;
+}
+
+
+.copyright-logotype{
+  width: 272px;
+  height: auto;
+  font-family: Inter;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+  padding: 0;
+
+}
+
+
+.about-us{
+  width: 272px;
+  height: auto;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: -30px;
+}
+
+
+.about-us p{
+  text-align: center;
+  font-size: 36px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700;
+}
+
+
+.footer-links{
+  width: 217px;
+  height: auto;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+.footer-links a{
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: bold;
+  color: #BBE9F7;
+
+}
+
+

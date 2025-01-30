@@ -1,0 +1,67 @@
+
+
+{% load static %}
+{% block link %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'login/css/reg.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<header>
+    <img src="{% static 'login/img/logo.png' %}" alt="">
+    <div class="logo">QREasy</div>
+
+</header>
+
+<body>
+    <form method="post">
+            {% csrf_token %}
+            <h2>Зареєструватись</h2>
+
+            <!-- Поле ввода имени пользователя -->
+            <h3>Ім`я</h3>
+            <div class="iconBox">
+                <div class="blue"></div>
+                <input type="text" name="username" placeholder="name" required>
+                <img src="{% static 'login/img/img4.png' %}" alt="Иконка email">
+            </div>
+            <h3>Пароль</h3>
+            <div class="iconBox2">
+                <div class="blue2"></div>
+                <input class="star" type="password" name="password" placeholder="*******" required>
+                <img src="{% static 'login/img/lock.png' %}" alt="Иконка замок">
+            </div>
+            <h3>Підтвердження паролю</h3>
+            <div class="iconBox">
+                <div class="blue"></div>
+                <input class="star" type="password" name="password_confirmation" placeholder="*******" required>
+                <img src="{% static 'login/img/lock.png' %}" alt="">
+            </div>
+            {% if name %}
+                <p style="color: red;">Такий користувач вже існує</p>
+            
+            {% elif password_confirmation %}
+                <p style="color: red;">Паролі не співпадають</p>
+            {% endif %}
+            <button type="submit" >Зареєструватись</button>
+            <a href="/log">Вже маєте акаунт?</a>
+    </form>
+    
+
+
+    
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+

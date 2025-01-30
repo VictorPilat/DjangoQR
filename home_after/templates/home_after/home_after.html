@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Головна сторінка
+{% endblock %}
+
+
+{% block content %}
+
+
+  <main class="main2">
+    
+    <div class="block-main">
+      <div class="text-packet">
+        <h1>Обери свій план</h1>
+        <span class = "subtitle-packet">Виберіть пакет, що найкраще підходить для вас та вашого бізнесу!</span>
+      </div>
+    
+      <div class="packet-cards">
+    
+        <div class="packet-card1">
+    
+          <div class = "packet-title">
+            <h1>Free</h1>
+            <p>Безкоштовно</p>
+            <hr class="divider">
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>1 QR-код</p>
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>Дійсний протягом 6 місяців</p>
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>Базові налаштування</p>
+          </div>
+    
+          
+          <a href="{% url 'free' %}" class="get-button">ОТРИМАТИ</a>
+    
+        </div>
+    
+    
+        <div class="packet-card2">
+    
+          <div class = "packet-title">
+            <h1>Standart</h1>
+            <p>$2 /місяць</p>
+            <hr class="divider">
+    
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>До 10 кастомізованих QR-кодів</p>
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>Дійсний протягом 12 місяців</p>
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>Налаштування кольорів, тексту</p>
+          </div>
+    
+         
+          <a href="{% url 'standard' %}" class="get-button">ОФОРМИТИ</a>
+        </div>
+    
+    
+        <div class="packet-card3">
+    
+          <div class = "packet-title">
+            <h1>Pro</h1>
+            <p>$10 /місяць</p>
+            <hr class="divider">
+    
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>До 100 кастомізованих QR-кодів</p>
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>Дійсний протягом 24 місяців</p>
+          </div>
+    
+          <div class="packet-option">
+            <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+            <p>Налаштування шаблона, рамки та логотипів</p>
+          </div>
+    
+          <a href="{% url 'pro' %}" class="get-button">ОФОРМИТИ</a>
+        </div>
+    
+    
+      </div>
+      
+
+    </div>
+    
+
+
+  </main>
+
+  
+  
+
+{% endblock %}
+
+

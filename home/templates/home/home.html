@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+  Головна сторінка
+{% endblock %}
+
+{% block content %}
+  <main>
+
+    <div class="main-block">
+      <div class = "transparent-main-block">
+        <h1>СТВОРИ СВІЙ ВЛАСНИЙ QR-CODE ЗА СЕКУНДИ!</h1>
+        <h3>Генеруйте власні QR-коди для будь-яких потреб. Швидко, зручно, та без реєстрації</h3>
+      </div>
+
+      <div class = "choose-action">
+  
+        <div class="sign-up-action">
+          <a href="/log">
+            <button class ="sign-up-button" id="sign-up-btn">УВІЙТИ ЩОБ ОТРИМАТИ ПОВНИЙ ДОСТУП</button>
+          </a>
+        </div>
+    
+        <div class="try-free-action">
+          <a href="/home_after">
+            <button class="try-free-button" id="try-free-btn">СПРОБУВАТИ ЗАРАЗ БЕЗ РЕЄСТРАЦІЇ</button>
+          </a>
+        
+        </div>
+    
+      </div>
+  
+    </div>
+  
+    
+  
+    <div class = "info-block">
+      
+      <div class="functions-text">
+        <p>ГОЛОВНІ ФУНКЦІЇ</p>
+      </div>
+  
+      <div class = "info-cards">
+        <div class = "card1">
+          <span class="card-title">
+            <p>Без реєстрації</p>
+          </span>
+  
+          <div class="card-info">
+            <img src="{% static 'home/images/clock_icon.png' %}" alt="clock_image">
+            <p>Швидко та легко створюйте безкоштовний QR-код, дійсний протягом 30 днів</p>
+          </div>
+  
+        </div>
+  
+        <div class = "card2">
+          <span class="card-title">
+            <p>Ваш дизайн</p>
+          </span>
+  
+          <div class="card-info">
+            <img src="{% static 'home/images/brush_icon.png' %}" alt="brush_image">
+            <p>Створюйте QR-коди, які підходять саме вам! Додайте посилання, оберіть потрібний колір, форму, розмір тощо</p>
+          </div>
+  
+        </div>
+  
+        <div class = "card3">
+          <span class="card-title">
+            <p>Широкі можливості</p>
+          </span>
+  
+          <div class="card-info">
+            <img src="{% static 'home/images/gears_icon.png' %}" alt="gears_image">
+            <p>Після реєстрації ви отримаєте доступ до розширеного функціоналу. Генеруйте більшу кількість QR-кодів і завантажуйте їх</p>
+          </div>
+  
+        </div>
+  
+  
+      </div>
+  
+    </div>
+  
+  </main>
+  
+
+
+    
+{% endblock  %}

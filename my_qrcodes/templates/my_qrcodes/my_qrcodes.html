@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+  Мої QR-коди
+{% endblock %}
+
+
+
+{% block content %}
+    <main class="main1">
+        
+        <div class="modal-buttons" style="display: none;">
+            <button id="jpeg-download" class="jpeg-button">ЗАВАНТАЖИТИ</button>
+            <button id="png-download" class="png-button">ЗАВАНТАЖИТИ</button>
+        </div>
+
+        <span class="qr-text">
+            <h1 >Мої QR-коди</h1>
+        </span>
+        
+        <div class="filter">
+            <div>
+                <p>Сортувати за</p>
+                <img src="{% static 'my_qrcodes/images/filter_down.png' %}" width="16.5px;" height="7.5px;" alt="">
+            </div>
+          
+
+        </div>
+
+
+        <div class="qr-codes">
+
+            <div class="qr-item">
+                <p>грудень 8, 2024</p>
+                <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
+                <div>
+                    <h2>Hello world</h2>
+                    <button class="download-button" id="download-btn"> </button>
+                </div>
+                
+            </div>
+
+            <div class="qr-item">
+                <p>грудень 8, 2024</p>
+                <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
+                <div>
+                    <h2>qr code QR-EASY</h2>
+                    <button class="download-button" id="download-btn" ></button>
+                </div>
+                
+            </div>
+
+            <div class="qr-item">
+                <p>грудень 9, 2024</p>
+                <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
+                <div>
+                    <h2>BMW</h2>
+                    <button class="download-button" id="download-btn" ></button>
+                </div>
+
+                
+            </div>
+
+            <div class="qr-item">
+                <p>грудень 20, 2024</p>
+                <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
+                <div>
+                    <h2>d</h2>
+                    <button class="download-button" id="download-btn" > </button>
+                </div>
+                
+            </div>
+            
+
+        </div>
+
+    </main>
+
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,87 @@
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="{% static 'my_qrcodes/css/my_qrcodes.css' %}">
+  <link rel="stylesheet" href="{% static 'contact/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'home_after/css/home_after.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+
+  {% block link %}{% endblock %} 
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+
+  <body>
+    
+
+    <header>
+      {% if request.user.is_authenticated %}
+        <div class="logout">
+            <h6>{{ request.user.username }}</h6>
+            <a href="{% url 'logout' %}">Вийти</a>
+        </div>
+      {% endif %}
+
+      <img src="{% static 'images/logotype_qreasy.png' %}" alt="logotype_qreasy">
+ 
+
+      
+      <div class="qr-code-links">
+        <a href="{% url 'home_after' %}">Cтворити QR-код</a>
+        <a href="{% url 'my_qrcodes' %}">Мої QR-коди</a>
+      </div>
+    
+      <div class="login-links">
+          <a href="{% url 'contact' %}">Контакти</a>
+      </div>
+
+
+    </header>
+
+
+      {% block content %} 
+      {% endblock %}
+    
+    {% if not footer %}
+      <footer>
+          <div class="about-us" >
+          <p> Про нас </p>
+          <nav class = "footer-links">
+              <a href="">Контакти</a>
+              <a href="">Питання</a>
+              <a href="">Політика конфіденційності</a>
+          </nav>
+            
+          </div> 
+
+
+          <div class = "contacts-icons">
+            <img src = "{% static 'images/black-youtube-icon.png' %}" alt="black-youtube-icon">
+            <img src = "{% static 'images/email-icon-design.png' %}" alt="email-icon-design">
+            <img src = "{% static 'images/telegram-black-icon1.png' %}" alt="telegram-black-icon">
+            <img src = "{% static 'images/black-instagram-icon.png' %}" alt="black-instagram-icon">
+          </div>
+
+          <div class = "copyright-logotype">
+            <img src="{% static 'images/logotype_qreasy2.png' %}" alt="logotype_qreasy">
+            <p>&copy; Copyright 2024 QR-EASY.COM</p>
+          </div>
+
+      </footer>
+    {% endif %}
+    
+    
+    
+  </body>
+</html>

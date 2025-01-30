@@ -1,0 +1,98 @@
+.main1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 78.5vh;
+  margin: 0;
+  padding: 0;
+
+
+}
+
+
+.qr-text{
+  width: 100vw;
+  height: 90px;
+  text-align: center;
+  font-size: 20px;
+  font-family: Century Gothic, sans-serif;
+}
+
+.my-qrcode-img{
+  width: 280px; 
+  height: 283.33px;
+}
+
+.filter{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 0 45px 0 40px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: Century Gothic, sans-serif;
+  font-weight: bold;
+  color: #627FFF;
+  
+}
+
+.filter div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 171px;
+  height: 35px;
+  
+}
+
+.qr-codes{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 40px 86px 70px 86px;
+  column-gap: 50px;
+  
+}
+
+.qr-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.qr-item p{
+  font-family: Century Gothic, sans-serif;
+  font-size: 24px;
+}
+
+.qr-item div{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 326px;
+  height: 50px;    
+
+}
+
+.qr-item h2{
+  width: 211px;
+  font-size: 18px;
+  font-family: Century Gothic, sans-serif;
+  
+}
+
+.download-button{
+  width: 25px;
+  height: 23.31px;
+  cursor:pointer;
+  border:none;
+  background-color: transparent;
+  background: url('../images/download-icon.png') no-repeat;
+  background-size: contain;
+}
+

@@ -1,0 +1,166 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:#4466FF;
+    width: 100vw;
+    height: 107px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 5px;
+}
+.logo{ 
+    /* position: absolute; */
+    padding-left: 5px;
+    color: #ffffff;
+    width: 142px;
+    height: 53px;
+    font-family: Exo;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 53.16px;
+    border-left: 2px solid #ffffff;
+}
+header img {
+    width: 75.73px;
+    height: 61.14px;
+    gap: 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8ECFC;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form{
+    /* display: flex; */
+    flex-direction: column; 
+    align-items: flex-start; 
+
+} 
+form h2{
+    text-align: center;
+    line-height: 48.41px;
+    font-weight: 700px;
+    font-size: 40px;
+}
+form h3{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24.38px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    font-family: Montserrat Alternates;
+}
+form  input{
+    width: 547px;
+    height: 56;
+    border-radius: 11px;
+    border: 1px solid;
+    gap: 11px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding-left: 50px;
+}
+.email{
+    background-color: black;
+    padding: 10px 10px 10px 50px; 
+    border: none;
+    outline: none;;
+}
+form input::placeholder{
+    width: 497px;
+    height: 19px;
+    line-height: 19.36px;
+    font-size: 16px ;
+}
+form input.star::placeholder{
+    position: absolute;
+    top: 23px;
+}
+form button{
+    cursor: pointer;
+    border-radius: 28px; ;
+    background-color: #4466FF;
+    width: 554px;
+    height: 53px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29.43px;
+    font-family: Century Gothic;
+}  
+form a{
+    width: 200px;
+    height: 30px;
+    display: flex;
+    margin-left: 200px;
+    text-decoration: none;
+    font-family: Century Gothic;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 17.17px;
+    color: rgba(0, 0, 0, 0.36);
+    text-align: center;
+    flex-wrap: nowrap;
+    
+}
+.blue{
+    background-color: #4466FF;
+    border-radius: 11px 0 0 11px;
+    width: 39px;
+    height: 56px;
+    margin-top: 0px;
+    flex-shrink: 0;
+    position: absolute;
+}
+.iconBox{
+    position: relative;
+
+}
+ .iconBox img{
+    
+    width: 22px;
+    height: 22px;
+    left: 10px;
+    margin-top: -38px;
+    position: absolute;
+ }
+ .blue2{
+    background-color: #4466FF;
+    border-radius: 11px 0 0 11px;
+    width: 39px;
+    height: 56px;
+    margin-top: 0px;
+    flex-shrink: 0;
+    position: absolute;
+ }
+ .iconBox2{
+    position: relative;
+
+}
+.iconBox2 img{
+    
+    width: 22px;
+    height: 22px;
+    left: 9px;
+    margin-top: -39px;
+    position: absolute;
+ }
+ 
