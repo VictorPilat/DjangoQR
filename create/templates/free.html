@@ -1,31 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block link %}
     <link rel="stylesheet" href="{% static 'css/free.css' %}">
 {% endblock %}
-
 {% block content %}
+<div class="container">
     <div class="free">
-        <div>
-            <p class="p1">Free</p>
-            <p class="p2">QR-code</p>
-            <p class="p3">6 місяців</p>
-        </div>
+        <span class="p1">Free</span>
+        <span class="p2">QR-code</span>
+        <span class="p3">6 місяців</span>
     </div>
 
     <div class="main">
-        <form>
-            <h2><img src="{% static 'img/icon_link.png' %}" alt=""> Ваш url-адрес</h2>
-            <input type="text" placeholder="https://qr-easy-generator.com/" required>
-            <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Ваша назва</h2>
-            <input type="text" placeholder="QREasy-код" required>
-            <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть розмір QR-коду</h2>
-            <input type="text" placeholder="100px" required>
+        <form method="POST">
+            {% csrf_token %}
+            <h2>
+                <img src="{% static 'img/icon_link.png' %}" alt="">
+                Ваш url-адрес
+            </h2>
+            <input type="text" name="link" placeholder="https://qr-easy-generator.com/" required>
+
+            <h2>
+                <img src="{% static 'img/icon_name.png' %}" alt="">
+                Ваша назва
+            </h2>
+            <input type="text" name="name" placeholder="QREasy-код" required>
+
+            <button class="QR_button" type="submit">Створити</button>
         </form>
-        <div class="QR_button">
-            <img class="QR" src="{% static 'img/QR.png' %}" alt="">
-            <button type="submit">Створити</button>
+
+        {% if qr_image_url %}
+        <div class="qr-code-container">
+            <h2>Ваш QR-код:</h2>
+            <img src="{{ qr_image_url }}" alt="Сгенерированный QR-код">
         </div>
+        {% endif %}
     </div>
+</div>
 {% endblock %}
