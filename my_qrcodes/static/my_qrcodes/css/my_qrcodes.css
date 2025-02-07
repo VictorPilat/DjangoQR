@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 78.5vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
 
@@ -35,6 +35,9 @@
   font-family: Century Gothic, sans-serif;
   font-weight: bold;
   color: #627FFF;
+  position: absolute;
+  margin-top: -30%;
+  margin-left: 85%;
   
 }
 
@@ -52,9 +55,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 50px;
+  gap:50px;
   padding: 40px 86px 70px 86px;
   column-gap: 50px;
+  margin-top: 400px;
   
 }
 
@@ -96,3 +100,8 @@
   background-size: contain;
 }
 
+h1 {
+  margin-top: 27%;
+  /* display: flex; */
+
+}

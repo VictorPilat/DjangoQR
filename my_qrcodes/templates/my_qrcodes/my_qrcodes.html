@@ -32,7 +32,7 @@
 
         <div class="qr-codes">
 
-            <div class="qr-item">
+            <!-- <div class="qr-item">
                 <p>грудень 8, 2024</p>
                 <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
                 <div>
@@ -50,20 +50,23 @@
                     <button class="download-button" id="download-btn" ></button>
                 </div>
                 
-            </div>
+            </div> -->
 
             <div class="qr-item">
                 <p>грудень 9, 2024</p>
-                <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
+                <!-- <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код"> -->
+                {% if qr_image_url %}
+                    <img src="{{ qr_image_url }}" alt="Сгенерированный QR-код">
+                {% endif %}
                 <div>
-                    <h2>BMW</h2>
+                    <h2>{{ user_name }}</h2>
                     <button class="download-button" id="download-btn" ></button>
                 </div>
-
+                
                 
             </div>
 
-            <div class="qr-item">
+            <!-- <div class="qr-item">
                 <p>грудень 20, 2024</p>
                 <img class= "my-qrcode-img" src="{% static 'my_qrcodes/images/qr_img1.png' %}" alt="QR код">
                 <div>
@@ -71,7 +74,7 @@
                     <button class="download-button" id="download-btn" > </button>
                 </div>
                 
-            </div>
+            </div> -->
             
 
         </div>

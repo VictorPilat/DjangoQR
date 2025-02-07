@@ -57,7 +57,6 @@ def render_login(request):
         
         if user is not None:
             login(request, user)
-            
             return redirect('/home_after')  
         else:
             user = None

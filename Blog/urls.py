@@ -35,6 +35,7 @@ urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico'))),
     path('', render_home),
     path('home_after/', render_home_after, name='home_after'),
+    # path('',include("home_after.urls"), name='home_after'),
     path('', include('login.urls'), name="login"),
     path('my_qrcodes/', render_my_qrcodes,name='my_qrcodes'),
     path('contact/', render_contact, name="contact"),

@@ -20,20 +20,31 @@
     </div>
 
     <div class="main">
-        <form>
-            <h2><img src="{% static 'img/icon_link.png' %}" alt=""> Ваш url-адрес</h1>
-            <input type="text" placeholder="https://qr-easy-generator.com/" required>
+        <form method="POST">
+            {% csrf_token %}
+            <h2><img src="{% static 'img/icon_link.png' %}" alt=""> Ваш url-адрес</h2>
+            <input type="text" name="link" placeholder="https://qr-easy-generator.com/" required>
+        
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Ваша назва</h2>
-            <input type="text" placeholder="QREasy-код" required>
+            <input type="text" name="name" placeholder="QREasy-код" required>
+        
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть розмір QR-коду</h2>
-            <input type="text" placeholder="100px" required>
+            <input type="number" name="size" placeholder="300" min="100" max="1000" required>
+        
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть колір QR-коду</h2>
-            <input type="text" placeholder="red" required>
+            <input type="text" name="color" placeholder="black" required>
+        
+            <button type="submit">Створити</button>
         </form>
-        <div class = "QR_button">
-            <img class="QR" src="{% static 'img/QR.png' %}" alt="">
-            <button type="submit" >Створити</button>
+        
+        {% if qr_image_url %}
+        <div class="QR_button">
+            <h2>Ваш QR-код:</h2>
+            <img class="QR" src="{{ qr_image_url }}" alt="Сгенерированный QR-код">
         </div>
+        {% endif %}
+        
+
 
     </div>
     
