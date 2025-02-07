@@ -126,14 +126,16 @@ body{
     height: 100px;
    
 }
-.QR{
-    width: 423px;
-    height: 419px;
-    gap: 0px;
-    opacity: 0px;
-    margin-top: -58px;
-
+.QR {
+    max-width: 100%;  /* Даем гибкость на маленьких экранах */
+    max-height: 500px;  /* Устанавливаем максимальную высоту */
+    width: auto;
+    height: auto;
 }
+
+
+
+
 .main{
 
     display: flex;
