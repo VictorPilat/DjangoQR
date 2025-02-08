@@ -1,16 +1,16 @@
 
 .content {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
-    height: 75.4vh;
+    height: 85vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 800px;
 }
 
 .qr-section img {
-    max-width: 534px;
+    max-width: 400px;
     margin-bottom: 76px;
 }
 
@@ -22,10 +22,9 @@
 }
 
 .contact-info p {
-    margin: 40px 0;
-    font-size: 2.3em;
+    margin: 15px 0;
+    font-size: 2.1em;
     color: #555;
-
 }
 
 
