@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def render_home_after(request):
+ 
   return render(request = request, template_name = "home_after/home_after.html", context={'footer': True} )

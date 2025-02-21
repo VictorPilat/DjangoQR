@@ -8,6 +8,7 @@
 
 {% endblock %}
 
+
 {% block content %}
 <header>
     <img src="{% static 'login/img/logo.png' %}" alt="">
@@ -15,7 +16,12 @@
 </header>
 
 <body>
-    <form method="post">
+    {% if next %}
+        <form action="/log/?next={{ next }}" method="post" >
+    {% else %}
+        <form method="post">
+    {% endif %}
+       
         {% csrf_token %}
         <h2>Увійти</h2>
         <h3>Ім`я</h3>
@@ -36,6 +42,6 @@
 
         <button type="submit">Увійти</button>
         <a href="/reg">Не маєте акаунт?</a>
-    </form>
+        </form>
 </body>
 {% endblock %}

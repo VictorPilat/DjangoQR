@@ -2,8 +2,13 @@
 {% load static %}
 
 {% block link %}
-    <link rel="stylesheet" href="{% static 'css/free.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pro.css' %}">
 {% endblock %}
+
+{% block title %}
+    Створення pro
+{% endblock %}
+
 
 {% block content %}
 
@@ -23,26 +28,72 @@
     </div>
 
     <div class="main">
-        <form>
-            <h2><img src="{% static 'img/icon_link.png' %}" alt=""> Ваш url-адрес</h1>
-            <input type="text" placeholder="https://qr-easy-generator.com/" required>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2><img src="{% static 'img/icon_link.png' %}" alt=""> Ваш url-адрес</h2>
+            <input class="input-type1" type="text" name="link" placeholder="https://qr-easy-generator.com/" required>
+        
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Ваша назва</h2>
-            <input type="text" placeholder="QREasy-код" required>
-            <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть розмір QR-коду</h2>
-            <input type="text" placeholder="100px" required>
-            <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть колір QR-коду</h2>
-            <input type="text" placeholder="red" required>
-            <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть шаблон QR-коду</h2>
-            <input type="text" placeholder="" required>
-            <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть кути QR-коду</h2>
-            <input type="text" placeholder="" required>
+            <input class="input-type1" type="text" name="name" placeholder="QREasy-код" required>
+        
+            <h2><img src="{% static 'img/icon_size.png' %}" alt=""> Укажіть розмір QR-коду</h2>
+            <input class="input-type4" type="range" name="size" value="150" min = '100' max="300" id="input-range" required>
+            <label id= 'range-label' for="input-range">Ширина: 100px</label>
+
+        
+            <h2><img src="{% static 'img/icon_color.png' %}" alt=""> Укажіть колір QR-коду</h2>
+            <label>Колір шаблону:</label>
+            <div class="input-colors">
+                <input class="input-type2" type="color" name="color" id= 'color-picker' required>
+                <input class="input-type3" type="text" name="color" id= 'color-text' placeholder="#FFFFFF" required>
+            </div>
+
+            <label>Колір фону:</label>
+            <div class="input-colors">
+                <input class="input-type2" type="color" name="back_color" id = 'color-picker1' required>
+                <input class="input-type3" type="text" name="back_color" id= 'color-text1' placeholder="#FFFFFF" required>
+            </div>
+            
+
+
+            <h2><img src="{% static 'img/icon_pattern.png' %}" alt=""> Укажіть шаблон QR-коду</h2>
+
+            <select class= 'pattern' name="pattern" id="pattern">
+                <option value="default">Стандартний</option>
+                <option value="squares">Квадрати</option>
+                <option value="dots">Крапки</option>
+                <option value="rounded"> Закруглені</option>
+                <option value="vertical_lines">Вертикальні лінії</option>
+                <option value="horizontal_lines">Горизонтальні лінії</option>
+            </select>
+
+            
+            <h2><img src="{% static 'img/icon_image.png' %}" alt=""> Укажіть лого</h2>
+            <div class="input-colors">
+                <input class="input-logo" name = "logo" type="file" accept="image/*">
+            </div>
+            
+
+            <!-- <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть кути QR-коду</h2>
+            <select class= 'eye-frame' name="eye_frame" id="eye-frame">
+                <option value="default">Стандартні</option>
+                <option value="rounded">Округлі</option>
+                <option value="dot">Крапкові</option>
+                <option value="gapped">Дуже округлі</option>
+            </select> -->
+            
+
+            <div class = "QR_button">
+                
+                <button class="create-pro" type="submit" >Створити</button>
+            </div>
         </form>
-        <div class = "QR_button">
-            <img class="QR" src="{% static 'img/QR.png' %}" alt="">
-            <button type="submit" >Створити</button>
-        </div>
+       
 
     </div>
+
+    <script src="{% static 'js/standart.js'%}"></script>
+
     
 
 

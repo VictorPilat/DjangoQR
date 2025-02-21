@@ -5,23 +5,13 @@ from django.contrib import messages
 from django.db.utils import IntegrityError
 
 
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-
-
-
-
 
 
 def render_registr(request):
     name = False
     password_confirmation = False
+    
+
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -49,6 +39,8 @@ def render_registr(request):
 
 def render_login(request):
     user = True
+    next = request.GET.get('next', '/home_after')
+
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -57,7 +49,8 @@ def render_login(request):
         
         if user is not None:
             login(request, user)
-            return redirect('/home_after')  
+            return redirect(next)  
+        
         else:
             user = None
 
@@ -67,5 +60,5 @@ def render_login(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('/log')
+    return redirect('home')
     

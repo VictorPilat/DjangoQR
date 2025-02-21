@@ -3,6 +3,13 @@
 {% block link %}
     <link rel="stylesheet" href="{% static 'css/free.css' %}">
 {% endblock %}
+
+{% block title %}
+    Створення free
+{% endblock %}
+
+
+
 {% block content %}
 <div class="container">
     <div class="free">
@@ -12,7 +19,7 @@
     </div>
 
     <div class="main">
-        <form method="POST">
+        <form class = "qr-form" method="POST">
             {% csrf_token %}
             <h2>
                 <img src="{% static 'img/icon_link.png' %}" alt="">
@@ -26,15 +33,34 @@
             </h2>
             <input type="text" name="name" placeholder="QREasy-код" required>
 
-            <button class="QR_button" type="submit">Створити</button>
+            <button class="QR_button" id = 'qr-button' type="submit" >Створити</button>
         </form>
-
-        {% if qr_image_url %}
+        
         <div class="qr-code-container">
             <h2>Ваш QR-код:</h2>
-            <img src="{{ qr_image_url }}" alt="Сгенерированный QR-код">
-        </div>
-        {% endif %}
+            {% if qr_image_url %}
+                <img class="QR" src="{{ qr_image_url }}" alt="generated QR-код">
+            {% else %}
+                <img class="QR" src = "{% static 'img/QR.png' %}" alt="generated QR-код">
+            {% endif %}
+                
+            <a href="{{ qrcode.image.url }}" download>
+                <button class="download-button" id="download-btn"></button>
+            </a>
+         </div>
+
+
+        
+
     </div>
 </div>
+
+<!-- Користувач натискає на кнопку 'Створити'. Відправляє на сервер метод POST 
+ Браузер отримує відповідь від сервера і перезавантажує сторінку.
+ Але зміни Javascript, в нашому випадку блокування кнопки перезапускаються з нуля, 
+ Тому що зміни js застосовуються перед оновленням сторінки.
+ -->
+
+
+
 {% endblock %}

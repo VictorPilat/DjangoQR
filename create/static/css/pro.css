@@ -6,26 +6,35 @@
 
 
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color:#4466FF;
-    width: 100vw;
-    height: 50px;
+header {
+    height: 52px;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
     display: flex;
- 
+    justify-content: center; 
     align-items: center;
-    gap: 5px;
-}
-header img{
-    text-align: left;
-}
-header a{
-    color: #ffffff;
-    text-decoration: none;
-}
+    background-color: #4466FF;
+    gap: 20px; 
+    padding: 0 40px;
+  }
+  
+  
+  .qr-code-links{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+    margin-left: -310;
+  }
+  
+  header a {
+    white-space: nowrap; 
+    color: white; 
+    text-decoration: none; 
+  }
 .link_qr{
     font-family:  Gothic;
     font-size: 20px;
@@ -75,6 +84,7 @@ body{
     display: flex;
     justify-content: center;
     text-align: end;
+    margin-top: -50px;
 }
 .free div{
     display: flex;
@@ -152,14 +162,38 @@ h2{
     padding: 10px 10px 10px 30px
     /* text-align: center; */
 }
+
+form label{
+    font-family: Montserrat Alternates;
+    font-size: 15px;
+    font-weight: 700px;
+    line-height: 24.38px;
+    gap: 10px;
+
+}
+
 form{
     margin-top: 30px;
     /* padding: 30px; */
     /* padding: 440px; */
 }
-form input{
+
+form .input-type4{
 
     margin-bottom: 30px;
+    width: 300px;
+    height: 52px;
+    padding: 0px 20px 0px 20px;
+    gap: 10px;
+    border-radius: 11px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+}
+
+
+form .input-type1{
+
+    /* margin-bottom: 30px; */
     width: 661px;
     height: 52px;
     padding: 0px 20px 0px 20px;
@@ -168,6 +202,102 @@ form input{
     border: 1px 0px 0px 0px;
     opacity: 0px;
 }
+
+form .input-type2{
+
+    width: 100px;
+    height: 52px;
+    border-radius: 11px;
+    border-top-right-radius: 0;
+    border-right: none;
+    
+    border-bottom-right-radius: 0;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+}
+ 
+
+form .input-type3{
+
+    width: 561px;
+    height: 52px;
+    border-radius: 11px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    padding-left: 10px;
+    
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+}
+
+
+form .input-logo[type="file"]::file-selector-button{
+    width: 250px;
+    height: 52px;
+    border: 1px solid black;
+    border-radius: 11px;
+    background-color: white;
+    
+   
+  }
+
+form .input-logo[type="file"]{
+    width: 561px;
+}
+
+
+
+
+
+
+
+form .input-colors{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+
+
+}
+
+form .pattern{
+    width: 661px;
+    height: 52px;
+    padding: 0px 20px 0px 20px;
+    gap: 10px;
+    border-radius: 11px;
+    border: 1px 0px 0px 0px;
+    appearance: none;
+    background-color: white;
+    margin: 0;
+    font-family: Montserrat Alternates;
+    font-size: inherit;
+    cursor: pointer;
+    
+}
+
+form .eye-frame{
+    width: 661px;
+    height: 52px;
+    padding: 0px 20px 0px 20px;
+    gap: 10px;
+    border-radius: 11px;
+    border: 1px 0px 0px 0px;
+    appearance: none;
+    background-color: white;
+    margin: 0;
+    font-family: Montserrat Alternates;
+    font-size: inherit;
+    cursor: pointer;
+    
+}
+
+
+
+
+  
+
+
 form img{
     /* display: flex; */
     position: absolute;
@@ -178,32 +308,19 @@ form img{
     height: 20px;
     /* margin-top: 50px; */
 }
-/* .QR_button{
-text-align: center;
 
-justify-content: center;
-} */
-button{
-    position: absolute;
-    width: 330px;
-    height: 53px;
-    padding: 10px 0px 10px 0px;
-    border-radius: 28px;
-    border: 1px solid white;
-    opacity: 0px;
-    margin-top: 380;
-    /* text-align: center; */
-    /* margin-bottom: 158px; */
-    margin-left: -375px;
-    background-color: #4466FF;
-}
-button {
+.create-pro{
     font-family:  Gothic;
     font-size: 24px;
     font-weight: 700;
+    width: 330px;
+    height: 53px;
     line-height: 29.43px;
     text-align: center;
     color: #ffffff;
     justify-content: center;
-
-}
+    background-color: #4466FF;
+    border-radius: 28px;
+    margin-left: 165px;
+    margin-top: 50px;
+} 

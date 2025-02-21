@@ -6,6 +6,7 @@
 }
 
 body {
+    /* position: center; */
     background-color: #E8ECFC;
     font-family: 'Montserrat Alternates', Arial, sans-serif;
 }
@@ -27,22 +28,24 @@ body {
     font-weight: 500;
 }
 
-/* Main Container */
+
 .container {
-    max-width: 1200px;
+    width: 100vw;
     margin: 0 auto;
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
-/* Free QR Section */
+
 .free {
     background-color: white;
-    padding: 1.5rem;
+    padding: 25px 94px 25px 94px;
+    /* gap: 19px; */
     margin-bottom: 2rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 1rem;
+    
 }
 
 .free .p1 {
@@ -67,7 +70,7 @@ body {
 /* Form Styles */
 .main {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
     padding: 2rem;
 }
@@ -113,10 +116,17 @@ form input {
     cursor: pointer;
     transition: background-color 0.3s;
     box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+    margin-left: 140px;
 }
 
 .QR_button:hover {
     background-color: #0321A9;
+}
+
+.QR_button:disabled {
+    pointer-events: none;
+    background-color: #0321A9;
+
 }
 
 /* QR Code Display */

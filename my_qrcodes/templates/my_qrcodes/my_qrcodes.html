@@ -6,15 +6,19 @@
 {% endblock %}
 
 {% block content %}
+
+
+
 <main class="main1">
     <div class="modal-buttons" style="display: none;">
         <button id="jpeg-download" class="jpeg-button">ЗАВАНТАЖИТИ</button>
         <button id="png-download" class="png-button">ЗАВАНТАЖИТИ</button>
     </div>
-
+    
     <span class="qr-text">
         <h1>Мої QR-коди</h1>
     </span>
+
 
     <div class="filter">
         <div>
@@ -25,6 +29,7 @@
 
     <div class="qr-codes">
         {% if user_qrcodes %}
+            
             {% for qrcode in user_qrcodes %}
                 <div class="qr-item">
                     <p>{{ qrcode.created_at|date:"d F, Y" }}</p>
@@ -34,11 +39,16 @@
                         <a href="{{ qrcode.image.url }}" download>
                             <button class="download-button" id="download-btn"></button>
                         </a>
+                        <form class="button" method="POST" action="{% url 'delete_qrcode' qrcode.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="del_qt" >x</button>
+                        </form>
                     </div>
                 </div>
             {% endfor %}
+            
         {% else %}
-            <p>Вы еще не создавали QR-коды.</p>
+            <p>Ви ще не створювали Qr-коди</p>
         {% endif %}
     </div>
 </main>

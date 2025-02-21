@@ -11,8 +11,12 @@
 
 
 .qr-text{
+  /* display: flex; */
+  position: absolute;
   width: 100vw;
   height: 80px;
+  margin-top: -950px;
+  /* justify-content: center; */
   text-align: center;
   font-size: 20px;
   font-family: Century Gothic, sans-serif;
@@ -53,12 +57,13 @@
 
 .qr-codes{
   display: flex;
+  max-height: 100vh; 
   justify-content: center;
   flex-wrap: wrap;
   gap:50px;
   padding: 40px 86px 70px 86px;
   column-gap: 50px;
-  margin-top: 400px;
+  margin-top: 700px;
   
 }
 
@@ -104,4 +109,14 @@ h1 {
   margin-top: 27%;
   /* display: flex; */
 
+}
+.del_qt{
+  /* position: absolute; */
+  justify-content: center;
+  align-items: center;
+  margin-right: -31px;
+  margin-top: -350px;
+  cursor: pointer;
+  background-size: contain;
+  /* color: red; */
 }

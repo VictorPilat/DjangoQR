@@ -15,6 +15,7 @@ class Qrcode(models.Model):
     image = models.ImageField(upload_to=user_directory_path, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Связь с аккаунтом
     created_at = models.DateTimeField(auto_now_add=True)
+    logo = models.ImageField(upload_to='img/logos', null=True)
 
     def __str__(self):
         return f"{self.name} - {self.user.username}"

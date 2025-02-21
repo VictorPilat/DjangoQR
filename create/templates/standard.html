@@ -4,6 +4,12 @@
 {% block link %}
 <link rel="stylesheet" href="{% static 'css/standard.css' %}">
 {% endblock %}
+
+{% block title %}
+    Створення standard
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -20,33 +26,41 @@
     </div>
 
     <div class="main">
-        <form method="POST">
+        <form method="post">
             {% csrf_token %}
             <h2><img src="{% static 'img/icon_link.png' %}" alt=""> Ваш url-адрес</h2>
-            <input type="text" name="link" placeholder="https://qr-easy-generator.com/" required>
+            <input class="input-type1" type="text" name="link" placeholder="https://qr-easy-generator.com/" required>
         
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Ваша назва</h2>
-            <input type="text" name="name" placeholder="QREasy-код" required>
+            <input class="input-type1" type="text" name="name" placeholder="QREasy-код" required>
         
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть розмір QR-коду</h2>
-            <input type="number" name="size" placeholder="300" min="100" max="1000" required>
+            <input class="input-type4" type="range" name="size" value="150" min = '100' max="300" id="input-range" required>
+            <label id= 'range-label' for="input-range">Ширина: 100px</label>
+
         
             <h2><img src="{% static 'img/icon_name.png' %}" alt=""> Укажіть колір QR-коду</h2>
-            <input type="text" name="color" placeholder="black" required>
-        
-            <button type="submit">Створити</button>
+            <label>Колір шаблону:</label>
+            <div class="input-colors">
+                <input class="input-type2" type="color" name="color" id= 'color-picker' required>
+                <input class="input-type3" type="text" name="color" id= 'color-text' placeholder="#FFFFFF" required>
+            </div>
+
+            <label>Колір фону:</label>
+            <div class="input-colors">
+                <input class="input-type2" type="color" name="back-color" id = 'color-picker1' required>
+                <input class="input-type3" type="text" name="back-color" id= 'color-text1' placeholder="#FFFFFF" required>
+            </div>
+            
+            <button class = 'create-st' type="submit">Створити</button>
+
+            
         </form>
-        
-        {% if qr_image_url %}
-        <div class="QR_button">
-            <h2 class="QR">Ваш QR-код:</h2>
-            <img class="QR" src="{{ qr_image_url }}" alt="QR-код">
-        </div>
-        {% endif %}
 
-                
-        
+        <script src="{% static 'js/standart.js'%}"></script>
 
+        
+       
 
     </div>
     
