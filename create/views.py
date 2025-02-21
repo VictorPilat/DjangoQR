@@ -11,12 +11,13 @@ from django.contrib.auth.decorators import login_required
 import os
 from PIL import Image
 from datetime import datetime
-
-
-
+from datetime import timedelta
+from django.utils.timezone import now
 
 def render_free(request):
     qr_image_url = None  
+    Qrcode.objects.filter(created_at__lt=now() - timedelta(days=180), free=True).delete()
+
 
     if request.method == "POST":
         name = request.POST.get("name")
@@ -24,11 +25,9 @@ def render_free(request):
 
         if not name or not link:
             return render(request, "free.html", {"error": "Заповніть усі поля", "footer": True})
-
         print(f"Генерация QR-кода для: {link}")
         file_path = None
         try:
-
             if request.user.is_authenticated:
                 username = request.user.username
             else:
@@ -36,33 +35,36 @@ def render_free(request):
 
             user_qr_folder = os.path.join("media", username)
 
-            if not os.path.exists(user_qr_folder):
-                os.makedirs(user_qr_folder)
-                print(f"Создана папка: {user_qr_folder}")
+            # Проверяем есть ли уже QR-код у пользователя
+            existing_qr = Qrcode.objects.filter(user=request.user).first() if request.user.is_authenticated else None
 
-                 
-            qr = qrcode.make(link)
-            buffer = BytesIO()
-            qr.save(buffer, format="PNG")
+            if existing_qr:
+                qr_image_url = f"/media/{existing_qr.image.name}"
+                print(f"Пользователь уже имеет QR-код: {qr_image_url}")
+            else:
+                if not os.path.exists(user_qr_folder):
+                    os.makedirs(user_qr_folder)
+                    print(f"Создана папка: {user_qr_folder}")
 
-            filename = f"{name}.png"
-            file_path = os.path.join(user_qr_folder, filename)
+              
+                qr = qrcode.make(link)
+                buffer = BytesIO()
+                qr.save(buffer, format="PNG")
 
-            with open(file_path, "wb") as f:
-                f.write(buffer.getvalue())
-         # Якщо користувач не залогінений, то request.user буде AnonymousUser, 
-            # який не має атрибута username
-            if request.user.is_authenticated:
-                qr_code = Qrcode(name=name, link=link, user=request.user)
-                qr_code.image.name = f"{username}/{filename}"
-                qr_code.save()
-           
+                filename = f"{name}.png"
+                file_path = os.path.join(user_qr_folder, filename)
 
+                with open(file_path, "wb") as f:
+                    f.write(buffer.getvalue())
+                 # Якщо користувач не залогінений, то request.user буде AnonymousUser, 
+                     # який не має атрибута username
+                if request.user.is_authenticated:
+                    qr_code = Qrcode(name=name, link=link, user=request.user)
+                    qr_code.image.name = f"{username}/{filename}"
+                    qr_code.save()
 
-            qr_image_url = f"/media/{username}/{filename}"
-            print(f"QR-код сохранен и доступен по пути: {qr_image_url}")
-
-
+                qr_image_url = f"/media/{username}/{filename}"
+                print(f"QR-код сохранен: {qr_image_url, existing_qr }")
 
         except Exception as e:
             print(f"Ошибка при создании QR-кода: {e}")
