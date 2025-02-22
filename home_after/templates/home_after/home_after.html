@@ -10,6 +10,7 @@
 {% block content %}
 
 
+
   <main class="main2">
     
     <div class="block-main">
@@ -74,7 +75,11 @@
           </div>
     
           
-          <a href="{% url 'standard' %}" class="get-button" >ОФОРМИТИ</a>
+          {% if user.is_authenticated %}
+            <a href="#" id="openPopup" name = 'standart-packet' class="get-button">ОФОРМИТИ</a>
+          {% else %}
+            <a href="{% url 'login' %}" class="get-button">ОФОРМИТИ</a>
+          {% endif %}
         </div>
     
     
@@ -101,8 +106,9 @@
             <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
             <p>Налаштування шаблона, рамки та логотипів</p>
           </div>
-    
-          <a href="{% url 'pro' %}" class="get-button">ОФОРМИТИ</a>
+
+          
+          <a href="#" id = 'ProButton' name = 'pro-packet' class="get-button">ОФОРМИТИ</a>
         </div>
     
     
@@ -114,6 +120,146 @@
 
 
   </main>
+
+
+
+  {% if user.is_authenticated %}
+    <div id="popupBg" class="popup-bg">
+      <!-- Модальне вiкно -->
+      <div id="popup" class="popup">
+          <div class="text-form">
+              <p>Оформити "Standart" план </p>
+              <span>$2/місяць</span>
+              <div class="close-text">
+                  <button id="closePopup" class="close-popup" >
+                      <img class="icon-cross"  src="{% static 'home_after/images/icon-cross.png' %}" alt="">
+                  </button>
+              </div>
+              
+          </div>
+          <hr class="line">
+        
+          <form action="{% url 'packet_standard' %}"  method="post" class="form-inputs">
+              {% csrf_token %}
+              <div class="iconBox">
+                <h3>Номер картки</h3>
+                <div class="blue"></div>
+                <input type="text" name="card-number" placeholder="---- ---- ---- ----" maxlength="16" >
+                <img src="{% static 'home_after/images/icon-card.png' %}" alt="">
+              </div>
+    
+                <div class="card-info">
+                    
+                  <div class="iconBox2">
+                    <h3>Термін дії</h3>
+                    <div class="blue"></div>
+                    <input type="text" name="card-date" placeholder="MM/YY" maxlength="4" >
+                    <img src="{% static 'home_after/images/icon-time.png' %}" alt="">
+                  </div>
+                    
+                  <div class="iconBox2">
+                    <h3>Код безпеки</h3>
+                    <div class="blue"></div>
+                    <input class="cvc" type="password" name="card-cvc" placeholder="CVC" maxlength="3"  >
+                    <img src="{% static 'home_after/images/icon-safe.png' %}" alt="">
+                  </div>
+                </div>
+                <div class="iconBox">
+                  <h3>Ім’я власника карти</h3>
+                  <div class="blue"></div>
+                  <input type="text" name="user-card" placeholder="name surname" >
+                  <img src="{% static 'home_after/images/icon-user.png' %}" alt="">
+                </div>
+    
+                <button type="submit" name ='standart-modal' value="standart-modal">ОФОРМИТИ</button>
+                
+              
+    
+          </form>
+          
+      </div>
+    </div>
+
+    
+
+  {% endif %}
+
+
+
+
+  {% if user.is_authenticated %}
+    <div id="popupBg1" class="popup-bg">
+      <!-- Модальне вiкно -->
+      <div id="popup1" class="popup">
+          <div class="text-form">
+              <p>Оформити "Pro" план </p>
+              <span>$10/місяць</span>
+              <div class="close-text">
+                  <button id="closePopup1" class="close-popup" >
+                      <img class="icon-cross"  src="{% static 'home_after/images/icon-cross.png' %}" alt="">
+                  </button>
+              </div>
+              
+          </div>
+          <hr class="line">
+        
+          <form action="{% url 'packet_pro' %}" method="post" class="form-inputs">
+              {% csrf_token %}
+              <div class="iconBox">
+                <h3>Номер картки</h3>
+                <div class="blue"></div>
+                <input type="text" name="card-number" placeholder="---- ---- ---- ----" maxlength="16" >
+                <img src="{% static 'home_after/images/icon-card.png' %}" alt="">
+              </div>
+    
+                <div class="card-info">
+                    
+                  <div class="iconBox2">
+                    <h3>Термін дії</h3>
+                    <div class="blue"></div>
+                    <input type="text" name="card-date" placeholder="MM/YY" maxlength="4" >
+                    <img src="{% static 'home_after/images/icon-time.png' %}" alt="">
+                  </div>
+                    
+                  <div class="iconBox2">
+                    <h3>Код безпеки</h3>
+                    <div class="blue"></div>
+                    <input class="cvc" type="password" name="card-cvc" placeholder="CVC" maxlength="3"  >
+                    <img src="{% static 'home_after/images/icon-safe.png' %}" alt="">
+                  </div>
+                </div>
+                <div class="iconBox">
+                  <h3>Ім’я власника карти</h3>
+                  <div class="blue"></div>
+                  <input type="text" name="user-card" placeholder="name surname" >
+                  <img src="{% static 'home_after/images/icon-user.png' %}" alt="">
+                </div>
+    
+                <button id = "ProButton" type="submit"  name ='pro-modal' value="pro-modal">ОФОРМИТИ</button>
+                
+              
+    
+          </form>
+          
+      </div>
+    </div>
+
+ 
+
+  {% endif %}
+
+
+    
+
+  
+  
+
+  <script src="{% static 'home_after/js/home_after.js'%}"></script>
+
+  
+  
+  
+
 
   
   

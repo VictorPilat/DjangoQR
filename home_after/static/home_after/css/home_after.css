@@ -1,5 +1,7 @@
 
 
+
+
 .subtitle-packet{
   margin-top: -400px;
 }
@@ -33,7 +35,7 @@
 }
 
 .text-packet h1 span{
-  color: #57CCF2;
+  color: black;
 }
 
 .text-packet .subtitle-packet{
@@ -100,7 +102,7 @@
   height: 39px;
   font-size: 32px;
   font-weight: 700;
-  color:#57CCF2;
+  color:black;
 
 
 }
@@ -181,7 +183,7 @@
 .logout {
   position: absolute;
   top: 10px;    
-  right: 20px;  
+  right: 80px;  
   font-family: Century Gothic, sans-serif;
   color: #ffffff;
 
@@ -202,4 +204,359 @@
 }
 .logout h6{
   font-size: 23px; 
+}
+
+.popup-bg{
+  display: none;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  /* flex-direction: row; */
+  background-color: rgb(0, 0, 0, 17%);
+} 
+.popup{
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 562px;
+  height: 518px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+.text-form{
+  width: 562px;
+  height: 87px;
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  /* border-bottom: 2px solid black; */
+  padding-left: 40px;
+  
+}
+.line{
+  width: 100%; 
+  margin-top: -10px;
+  border: 1px solid #000;
+}
+.text-form p{
+  width: 291px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.text-form span{
+  width: fit-content;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.close-text{
+  display: flex;
+  padding: 11px;
+  width: 30px;
+  height: 87px;
+  
+}
+
+.close-text button{
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.close-text img{
+  margin-top: 12px;
+  margin-left: -14px;
+  width: 30px;
+  height: 30px;
+}
+
+
+
+.form-inputs {
+  /* display: grid; */
+  place-items: center; 
+  width: 52vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0 10px 0;
+  margin-top: -38px;
+}
+
+
+.form-inputs h3{
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24.38px;
+  display: flex;
+  align-items: flex-start; 
+  font-family: Montserrat Alternates;
+} 
+.iconBox input{
+  width: 407px;
+  height: 56px;
+  border-radius: 11px;
+  border: 1px solid;
+  /* gap: 100px; */
+  background-color: #ffffff;
+  display: flex;
+  /* flex-direction: column;  */
+  align-items: flex-start; 
+  padding-left: 50px;
+}
+
+.form-inputs .cvc{
+  width: 245;
+  /* margin-left: 30px; */
+}
+.form-inputs .card-info {
+  width: 407px;
+  height: 66px;
+  display: flex;
+  gap: 23px;
+  margin-top: -50px;
+
+}
+
+
+
+
+.form-inputs .card-info img{
+  width: 22px;
+  height: 22px;
+  margin-top: 18px;
+  
+
+}
+.iconBox{
+  /* gap: 100px; */
+  padding: -10px;
+}
+.iconBox2 input{
+  /* position: absolute; */
+  flex-direction: row; 
+  width: 139px;
+  height: 56px;
+  border-radius: 11px;
+  border: 1px solid;
+  background-color: #ffffff;
+   /* display: flex; */
+  flex-direction: row; 
+  /* align-items: flex-start;   */
+  padding-left: 50px;
+}
+
+
+form input::placeholder{
+  width: 497px;
+  height: 19px;
+  line-height: 19.36px;
+  font-size: 16px ;
+}
+form input.star::placeholder{
+  position: absolute;
+  top: 23px;
+}
+form button{
+  cursor: pointer;
+  border-radius: 28px; ;
+  background-color: #4466FF;
+  width: 407px;
+  height: 53px;
+  /* margin-top: 35px; */
+  border: 5px solid white;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29.43px;
+  font-family: Century Gothic;
+}
+
+
+.blue{
+  background-color: #4466FF;
+  border-radius: 11px 0 0 11px;
+  width: 39px;
+  height: 56px;
+  margin-top: 0px;
+  flex-shrink: 0;
+  position: absolute;
+}
+
+
+
+
+.IconBox, .iconBox2{
+  position: relative;
+  
+
+}
+
+
+
+
+.IconBox img, .iconBox2 img{
+  width: 22px;
+  height: 22px;
+  left: 10px;
+  margin-top: -38px;
+  position: absolute;
+
+}
+
+.packet-card11{
+  width: 342px;
+  height: 443px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 21px;
+  border:#2843BE solid 2px;
+  background-color: white;
+  transition: height 0.3s ease;
+}
+
+/* Основной контейнер */
+.packet-pro {
+  width: 342px;
+  height: 443px;
+  border: 2px solid #2843BE;
+  border-radius: 21px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  position: relative;
+  transition: height 0.3s ease;
+}
+
+/* .packet-pro:hover {
+  height: 478px;
+} */
+
+/* Заголовок */
+.packet-title-pro {
+  text-align: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.packet-title-pro h1 {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+/* Основная кнопка */
+.pro-main-button {
+  width: 279px;
+  height: 53px;
+  background: #4466FF;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  font-size: 24px;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 15px 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pro-main-button:hover {
+  background: #3a5ad6;
+  transform: scale(1.02);
+}
+
+/* Разделитель */
+.divider-pro {
+  width: 80%;
+  border: 1px solid #000;
+  margin: 0 auto 20px;
+}
+
+/* Элементы списка */
+.packet-option-pro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 80%;
+  margin: 8px 0;
+  color: #2843BE;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 600;
+}
+
+.packet-option-pro img {
+  width: 22px;
+  height: 22px;
+  filter: invert(25%) sepia(90%) saturate(1854%) hue-rotate(218deg) brightness(93%) contrast(91%);
+}
+
+/* Кнопка отмены */
+.pro-cancel-button {
+  background: #e71515;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 12px 40px;
+  font-size: 19px;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: 25px;
+}
+
+.pro-cancel-button:hover {
+  background: #c41212;
+  transform: scale(1.02);
+}
+
+
+.get-button1  {
+  width: 279px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  border-radius: 28px;
+  font-family: Century Gothic, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+  background-color: #BDC3DE;
+  border: white solid 3px;
+  transition: background-color 0.7s linear, color 0.7s linear;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  
 }

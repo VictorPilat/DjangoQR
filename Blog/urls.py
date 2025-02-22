@@ -42,10 +42,14 @@ urlpatterns = [
     path('my_qrcodes/', render_my_qrcodes, name='my_qrcodes'),
     path('contact/', render_contact, name="contact"),
     path('',include("create.urls"), name='create'),
+   
+    
     path('logout/', logout_user, name = "logout"),
     path('delete_qrcode/<int:qrcode_id>/', views.delete_qrcode, name='delete_qrcode'),
-
-
+    path('',include("home_after.urls"), name='packet_standard'),
+    path('',include("home_after.urls"), name='packet_pro'),
+    
+    
     
 ]
 if settings.DEBUG:

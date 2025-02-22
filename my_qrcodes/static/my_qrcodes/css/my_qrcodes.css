@@ -95,6 +95,8 @@
   
 }
 
+
+
 .download-button{
   width: 25px;
   height: 23.31px;
@@ -111,12 +113,14 @@ h1 {
 
 }
 .del_qt{
-  /* position: absolute; */
+  width: 25px;
+  height: 23.31px;
+  position: absolute;
   justify-content: center;
   align-items: center;
-  margin-right: -31px;
-  margin-top: -350px;
+  background-color: inherit;
+  border: none;
   cursor: pointer;
-  background-size: contain;
+  appearance: none;
   /* color: red; */
 }

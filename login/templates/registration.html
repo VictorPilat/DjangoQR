@@ -27,13 +27,13 @@
             <h3>Ім`я</h3>
             <div class="iconBox">
                 <div class="blue"></div>
-                <input type="text" name="username" placeholder="name" required>
+                <input type="text" name="username" placeholder="name" maxlength="20" required>
                 <img src="{% static 'login/img/img4.png' %}" alt="Иконка email">
             </div>
             <h3>Пароль</h3>
             <div class="iconBox2">
                 <div class="blue2"></div>
-                <input class="star" type="password" name="password" placeholder="*******" required>
+                <input class="star" type="password" name="password" placeholder="*******" maxlength="20" required>
                 <img src="{% static 'login/img/lock.png' %}" alt="Иконка замок">
             </div>
             <h3>Підтвердження паролю</h3>

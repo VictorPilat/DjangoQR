@@ -41,11 +41,10 @@
       
       <div class="qr-code-links">
         <a href="{% url 'home_after' %}">Cтворити QR-код</a>
-        <a href="{% url 'contact' %}">Контакти</a>
         {% if request.user.is_authenticated %}
           <a href="{% url 'my_qrcodes' %}">Мої QR-коди</a>
         {% endif %}
-       
+        <a href="{% url 'contact' %}">Контакти</a>
       </div>
     
       

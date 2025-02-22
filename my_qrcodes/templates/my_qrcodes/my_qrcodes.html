@@ -41,7 +41,9 @@
                         </a>
                         <form class="button" method="POST" action="{% url 'delete_qrcode' qrcode.id %}">
                             {% csrf_token %}
-                            <button type="submit" class="del_qt" >x</button>
+                            <button type="submit" class="del_qt" >
+                                <img src="{% static 'my_qrcodes/images/icon-delete.png' %}  " alt="delete" width="25px" height="25px">
+                            </button>
                         </form>
                     </div>
                 </div>
