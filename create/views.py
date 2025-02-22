@@ -36,11 +36,9 @@ def render_free(request):
             user_qr_folder = os.path.join("media", username)
 
             # Проверяем есть ли уже QR-код у пользователя
-            existing_qr = Qrcode.objects.filter(user=request.user).first() if request.user.is_authenticated else None
-
-            if existing_qr:
-                qr_image_url = f"/media/{existing_qr.image.name}"
-                print(f"Пользователь уже имеет QR-код: {qr_image_url}")
+            user_qr_count = Qrcode.objects.filter(user=request.user).count()
+            if user_qr_count >= 1:
+                return redirect('free')
             else:
                 if not os.path.exists(user_qr_folder):
                     os.makedirs(user_qr_folder)
@@ -64,7 +62,7 @@ def render_free(request):
                     qr_code.save()
 
                 qr_image_url = f"/media/{username}/{filename}"
-                print(f"QR-код сохранен: {qr_image_url, existing_qr }")
+                print(f"QR-код сохранен: {qr_image_url}")
 
         except Exception as e:
             print(f"Ошибка при создании QR-кода: {e}")
@@ -83,6 +81,7 @@ def render_free(request):
 @login_required(login_url='login')
 def render_standard(request):
     qr_image_url = None  
+    Qrcode.objects.filter(created_at__lt=now() - timedelta(days=365), standard=True).delete()
 
     if request.method == "POST":
         name = request.POST.get("name")
@@ -93,16 +92,21 @@ def render_standard(request):
 
         if not name or not link or not size or not color:
             return render(request, "standard.html", {"error": "Заповніть усі поля"})
+        
+        user_qr_count = Qrcode.objects.filter(user=request.user).count()
+        if user_qr_count >= 10:
+            return redirect('standard')
 
         try:
         
             size = int(size)  
 
             username = request.user.username
-            user_qr_folder = os.path.join("media", username)
+            qr_folder = os.path.join("media", username)
+            
 
-            if not os.path.exists(user_qr_folder):
-                os.makedirs(user_qr_folder)
+            if not os.path.exists(qr_folder):
+                os.makedirs(qr_folder)
 
             qr_code = Qrcode(name=name, link=link, user=request.user)
 
@@ -127,7 +131,8 @@ def render_standard(request):
             img.save(buffer, format="PNG")
 
             filename = f"{name}_{datetime.now().timestamp()}.png"  
-            file_path = os.path.join(user_qr_folder, filename)
+            file_path = os.path.join(qr_folder, filename)
+            
 
             with open(file_path, "wb") as f:
                 f.write(buffer.getvalue())
@@ -136,14 +141,13 @@ def render_standard(request):
             qr_code.save()
 
             qr_image_url = f"/media/{username}/{filename}"
+            
 
         except Exception as e:
             print(e)
         return redirect('my_qrcodes')
 
-    return render(request, "standard.html", {
-        "qr_image_url": qr_image_url,
-        "footer": True
+    return render(request, "standard.html", {"qr_image_url": qr_image_url,"footer": True
     })
 
 
@@ -158,6 +162,7 @@ def hex_to_rgb(hex_format):
 @login_required(login_url='login')
 def render_pro(request):
     qr_image_url = None  
+    Qrcode.objects.filter(created_at__lt=now() - timedelta(days=730), pro=True).delete()
 
     if request.method == "POST":
         name = request.POST.get("name")
@@ -171,6 +176,9 @@ def render_pro(request):
 
         if not name or not link or not size or not color:
             return render(request, "standard.html", {"error": "Заповніть усі поля"})
+        user_qr_count = Qrcode.objects.filter(user=request.user).count()
+        if user_qr_count >= 100:
+            return redirect('pro')
 
         try:
         
