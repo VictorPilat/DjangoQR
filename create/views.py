@@ -6,68 +6,69 @@ from qrcode.image.styles.moduledrawers import *
 from io import BytesIO
 from django.core.files.base import ContentFile
 from django.shortcuts import render, redirect
-from .models import Qrcode
+from .models import Qrcode, QrcodeLimit
 from django.contrib.auth.decorators import login_required
 import os
+
 from PIL import Image
 from datetime import datetime
 from datetime import timedelta
 from django.utils.timezone import now
 
+
 def render_free(request):
-    qr_image_url = None  
+    qr_image_url = None
+    error_message = None  # Добавляем переменную для ошибки
+    
+    # Удаляем старые бесплатные QR-коды
     Qrcode.objects.filter(created_at__lt=now() - timedelta(days=180), free=True).delete()
-
-
+    
+    user_qr = Qrcode.objects.filter(user=request.user).first() if request.user.is_authenticated else None
+    
     if request.method == "POST":
-        name = request.POST.get("name")
-        link = request.POST.get("link")
-
-        if not name or not link:
-            return render(request, "free.html", {"error": "Заповніть усі поля", "footer": True})
-        print(f"Генерация QR-кода для: {link}")
-        file_path = None
-        try:
-            if request.user.is_authenticated:
-                username = request.user.username
-            else:
-                username = 'anonymous'
-
-            user_qr_folder = os.path.join("media", username)
-
-            # Проверяем есть ли уже QR-код у пользователя
-            user_qr_count = Qrcode.objects.filter(user=request.user).count()
-            if user_qr_count >= 1:
-                return redirect('free')
-            else:
+        if user_qr:  # Если у пользователя уже есть QR-код
+            error_message = "Ви вже створили QR-код. Видаліть старий, щоб створити новий."
+        else:
+            name = request.POST.get("name")
+            link = request.POST.get("link")
+            
+            if not name or not link:
+                return render(request, "free.html", {"error": "Заповніть усі поля", "footer": True})
+            
+            print(f"Генерация QR-кода для: {link}")
+            
+            try:
+                username = request.user.username if request.user.is_authenticated else 'anonymous'
+                user_qr_folder = os.path.join("media", username)
+                
                 if not os.path.exists(user_qr_folder):
                     os.makedirs(user_qr_folder)
                     print(f"Создана папка: {user_qr_folder}")
-
-              
+                
                 qr = qrcode.make(link)
                 buffer = BytesIO()
                 qr.save(buffer, format="PNG")
-
+                
                 filename = f"{name}.png"
                 file_path = os.path.join(user_qr_folder, filename)
-
+                
                 with open(file_path, "wb") as f:
                     f.write(buffer.getvalue())
-                 # Якщо користувач не залогінений, то request.user буде AnonymousUser, 
-                     # який не має атрибута username
+                
                 if request.user.is_authenticated:
                     qr_code = Qrcode(name=name, link=link, user=request.user)
                     qr_code.image.name = f"{username}/{filename}"
                     qr_code.save()
-
+                
                 qr_image_url = f"/media/{username}/{filename}"
                 print(f"QR-код сохранен: {qr_image_url}")
-
-        except Exception as e:
-            print(f"Ошибка при создании QR-кода: {e}")
-
-    return render(request, "free.html", {"qr_image_url": qr_image_url, "footer": True})
+            
+            except Exception as e:
+                print(f"Ошибка при создании QR-кода: {e}")
+                error_message = "Сталася помилка при створенні QR-коду."
+            redirect('my_qrcodes')
+    
+    return render(request, "free.html", {"qr_image_url": qr_image_url, "error": error_message, "footer": True})
 
     
 
@@ -81,6 +82,7 @@ def render_free(request):
 @login_required(login_url='login')
 def render_standard(request):
     qr_image_url = None  
+    error_message = None
     Qrcode.objects.filter(created_at__lt=now() - timedelta(days=365), standard=True).delete()
 
     if request.method == "POST":
@@ -93,9 +95,25 @@ def render_standard(request):
         if not name or not link or not size or not color:
             return render(request, "standard.html", {"error": "Заповніть усі поля"})
         
+        qrcode_limit, created = QrcodeLimit.objects.get_or_create(user=request.user)
+        # # Початковий ліміт
+        user_qr_limit = qrcode_limit.limit_standard
+        # # Кількість qr-кодів
         user_qr_count = Qrcode.objects.filter(user=request.user).count()
-        if user_qr_count >= 10:
-            return redirect('standard')
+        print(user_qr_count)
+
+    
+        if user_qr_count >= user_qr_limit:
+            error_message = f"Ви вже створили {user_qr_limit} QR-кодів. Видаліть старий, щоб створити новий."
+            print(error_message)
+            return render(request, "standard.html", {"qr_image_url": qr_image_url,"footer": True, 'error': error_message})
+
+                    
+
+            
+
+
+
 
         try:
         
@@ -145,10 +163,9 @@ def render_standard(request):
 
         except Exception as e:
             print(e)
-        return redirect('my_qrcodes')
+        
 
-    return render(request, "standard.html", {"qr_image_url": qr_image_url,"footer": True
-    })
+    return render(request, "standard.html", {"qr_image_url": qr_image_url,"footer": True})
 
 
 # Функція перетворення hex формат на rgb. 
@@ -161,7 +178,8 @@ def hex_to_rgb(hex_format):
 
 @login_required(login_url='login')
 def render_pro(request):
-    qr_image_url = None  
+    qr_image_url = None 
+    error_message = None 
     Qrcode.objects.filter(created_at__lt=now() - timedelta(days=730), pro=True).delete()
 
     if request.method == "POST":
@@ -176,9 +194,21 @@ def render_pro(request):
 
         if not name or not link or not size or not color:
             return render(request, "standard.html", {"error": "Заповніть усі поля"})
+        
+        qrcode_limit, created = QrcodeLimit.objects.get_or_create(user=request.user)
+        # # Початковий ліміт
+        user_qr_limit = qrcode_limit.limit_pro
+        # # Кількість qr-кодів
         user_qr_count = Qrcode.objects.filter(user=request.user).count()
-        if user_qr_count >= 100:
-            return redirect('pro')
+        print(user_qr_count)
+
+    
+        if user_qr_count >= user_qr_limit:
+            error_message = f"Ви вже створили {user_qr_limit} QR-кодів. Видаліть старий, щоб створити новий."
+            print(error_message)
+            return render(request, "pro.html", {"qr_image_url": qr_image_url,"footer": True, 'error': error_message})
+
+            
 
         try:
         
@@ -283,7 +313,7 @@ def render_pro(request):
 
         except Exception as e:
             print(e)
-        return redirect('my_qrcodes')
+       
 
 
-    return render(request, 'pro.html', {"qr_image_url": qr_image_url, 'footer': True})
+    return render(request, 'pro.html', {"qr_image_url": qr_image_url, 'footer': True, 'error': error_message})

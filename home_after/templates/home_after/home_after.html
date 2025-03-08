@@ -76,7 +76,7 @@
     
           
           {% if user.is_authenticated %}
-            <a href="#" id="openPopup" name = 'standart-packet' class="get-button">ОФОРМИТИ</a>
+            <a href="#" id="openPopupStandart" name = 'standart-packet' class="get-button">ОФОРМИТИ</a>
           {% else %}
             <a href="{% url 'login' %}" class="get-button">ОФОРМИТИ</a>
           {% endif %}
@@ -107,8 +107,11 @@
             <p>Налаштування шаблона, рамки та логотипів</p>
           </div>
 
-          
+          {% if user.is_authenticated %}
           <a href="#" id = 'ProButton' name = 'pro-packet' class="get-button">ОФОРМИТИ</a>
+          {% else %}
+            <a href="{% url 'login' %}" id = 'ProButton' name = 'pro-packet' class="get-button">ОФОРМИТИ</a>
+          {% endif %}
         </div>
     
     

@@ -19,6 +19,7 @@ class Qrcode(models.Model):
     free = models.BooleanField(default=False)
     standard= models.BooleanField(default=False)
     pro = models.BooleanField(default=False)
+    
 
    
 
@@ -26,3 +27,9 @@ class Qrcode(models.Model):
     def __str__(self):
         return f"{self.name} - {self.user.username}"
 
+
+class QrcodeLimit(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # Створюємо поля ліміту QR-кодів, які можуть містити лише додатні числа
+    limit_standard = models.PositiveBigIntegerField(default=10)
+    limit_pro = models.PositiveBigIntegerField(default=20)

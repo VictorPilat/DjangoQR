@@ -13,17 +13,28 @@
 {% block content %}
 
 
+<!-- {% with current_page='standard' %}
+    <a href="{% url 'packet_standard' %}">Cтворити QR-код</a>
 
-
+{% endwith %} -->
+<!-- {% if request.path == '/standard/' %}
+    <a href="{% url 'packet_standard' %}">Cтворити QR-код</a>
+{% else %}
+    <a href="{% url 'home_after' %}">Cтворити QR-код</a>
+{% endif %} -->
 <body>
     
     <div class="standard">
-        <div>
-            <p class="p1">Standard</p>
-            <p class="p2">QR-code</p>
-            <p class="p3">12 місяців</p>
+        <div class="standard2">
+            <span class="p1">Standard</span>
+            <span class="p2">QR-code</span>
+            <span class="p3">12 місяців</span>
         </div>
     </div>
+
+    {% if error %}
+        <p class="error-message" style="color: red;">{{ error }}</p>
+    {% endif %}
 
     <div class="main">
         <form method="post">
@@ -54,18 +65,25 @@
             
             <button class = 'create-st' type="submit">Створити</button>
 
+
+           
+
             
         </form>
 
-        <script src="{% static 'js/standart.js'%}"></script>
-
         
-       
+        <div class="qr-code-container">
+            <h2>Ваш QR-код:</h2>
+            {% if qr_image_url %}
+                <img class="QR" src="{{ qr_image_url }}" alt="generated QR-код">
+            {% else %}
+                <img class="QR" src = "{% static 'img/QR.png' %}" alt="generated QR-код">
+            {% endif %}
+        </div>
 
     </div>
     
-
-
+    <script src="{% static 'js/standart.js'%}"></script>
 
 </body>
 

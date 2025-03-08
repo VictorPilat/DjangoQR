@@ -18,7 +18,11 @@
         <span class="p3">6 місяців</span>
     </div>
 
+    {% if error %}
+        <p class="error-message" style="color: red;">{{ error }}</p>
+    {% endif %}
     <div class="main">
+        
         <form class = "qr-form" method="POST">
             {% csrf_token %}
             <h2>
@@ -35,7 +39,6 @@
 
             <button class="QR_button" id = 'qr-button' type="submit" >Створити</button>
         </form>
-        
         <div class="qr-code-container">
             <h2>Ваш QR-код:</h2>
             {% if qr_image_url %}
@@ -43,11 +46,10 @@
             {% else %}
                 <img class="QR" src = "{% static 'img/QR.png' %}" alt="generated QR-код">
             {% endif %}
-                
-            <a href="{{ qrcode.image.url }}" download>
-                <button class="download-button" id="download-btn"></button>
-            </a>
-         </div>
+        </div>
+
+        
+        
 
 
         

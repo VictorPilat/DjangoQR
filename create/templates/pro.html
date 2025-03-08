@@ -17,15 +17,17 @@
 <body>
     
 
-   
-
-    <div class="free">
-        <div>
+    <div class="pro">
+        <div class="pro2">
             <p class="p1">Pro</p>
             <p class="p2">QR-code</p>
             <p class="p3">24 місяці</p>
         </div>
     </div>
+
+    {% if error %}
+        <p class="error-message" style="color: red;">{{ error }}</p>
+    {% endif %}
 
     <div class="main">
         <form method="post" enctype="multipart/form-data">
@@ -83,11 +85,20 @@
             </select> -->
             
 
-            <div class = "QR_button">
-                
+            <div class = "QR_button">              
                 <button class="create-pro" type="submit" >Створити</button>
             </div>
         </form>
+
+        <div class="qr-code-container">
+            <h2>Ваш QR-код:</h2>
+            {% if qr_image_url %}
+                <img class="QR" src="{{ qr_image_url }}" alt="generated QR-код">
+            {% else %}
+                <img class="QR" src = "{% static 'img/QR.png' %}" alt="generated QR-код">
+            {% endif %}
+        </div>
+       
        
 
     </div>

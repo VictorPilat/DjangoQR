@@ -15,7 +15,7 @@
     
     <div class="block-main">
       <div class="text-packet">
-        <h1>Обери свій план</h1>
+        <!-- <h1>Обери свій план</h1> -->
         <span class = "subtitle-packet">Ви обрали чудовий вибір!</span>
       </div>
     
@@ -55,7 +55,7 @@
               <h1>Standart</h1>
             </div>
             
-            <a href="/pro" class="pro-main-button">СТВОРИТИ QR-КОД</a>
+            <a href="/standard" id="openPopupStandart" class="pro-main-button">СТВОРИТИ QR-КОД</a>
             <hr class="divider-pro">
           
             <div class="packet-option-pro">
@@ -109,10 +109,55 @@
             
             <a href="" class="get-button1" >ОТРИМАТИ</a>
           </div>
+
+
+
+
+          
+          <div class="packet-card11">
+            
+            <div class = "packet-title">
+              <h1>Add Qr-code</h1>
+              <p>$1 /Qr-код</p>
+              <hr class="divider1">
+      
+            </div>
+      
+            <div class="packet-option">
+              <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+              <p>Додавай скільки завгодно QR-кодів</p>
+            </div>
+      
+            <div class="packet-option">
+              <img src="{% static 'home_after/images/right_arrow_icon.png' %}" alt="main-block" width="25px;" height="25px;">
+              <p>Дійсний протягом твоєї підписки</p>
+            </div>
+      
+            
+            <button class="add" id="add">ДОДАТИ</button>
+          </div>
     
 
 
   </main>
+    <div id="popupBg3" class="popup-bg3">
+      <!-- Модальне вiкно -->
+      <div id="popup3" class="popup3">
+          <div class="text-form3">
+              <p>Додати QR-код </p>
+              <span>$1/шт</span>
+              <div class="close-text3">
+                  <button id="closePopup3" class="close-popup3" >
+                      <img class="icon-cross3"  src="{% static 'home_after/images/icon-cross.png' %}" alt="">
+                  </button>
+              </div>
+              <form method="POST" class="quantityDiv">
+                {% csrf_token %}
+                <input class="quantity" type="number" id="quantity" name="quantity" min="1" max="50" value="1">
+                <button class="quantityButton" name="quantity_button"  type="submit" >ДОДАТИ</button>
+              </form>
+               
+           
 
   <script src="{% static 'home_after/js/home_after.js'%}"></script>
 

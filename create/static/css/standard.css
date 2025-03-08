@@ -82,60 +82,40 @@ body{
     
 }
 .standard{
-    margin-top: -50px;
-    display: flex;
-    justify-content: center;
-    text-align: end;
-}
-.standard div{
-    display: flex;
     width: 100vw;
-    height: 106px;
-    background-color: #ffffff;
-    margin-top: 50px;
-    flex-direction: row;
-    padding: 0px 94px 0px 94px;
-    gap: 19px;
-    opacity: 0px;
+    margin: 0 auto;
+}
+.standard2{
+    background-color: white;
+    padding: 25px 94px 25px 94px;
+    /* gap: 19px; */
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 1rem;
     
-
 }
 
-.p1 {
-    /* display: flex; */
-    font-family: Montserrat Alternates;
+
+
+.standard2 .p1 {
     font-size: 40px;
     font-weight: bold;
-    /* line-height: 48.76px; */
-    text-align: center;
-    display: grid;
-    place-items: center;
-    height: 100px;
-}
-.p2 {
-    /* display: flex; */
-    font-family: Montserrat Alternates;
-    font-size: 40px;
-    font-weight: bold;
-    /* line-height: 48.76px; */
-    text-align: center;
-    display: grid;
-    place-items: center;
-    height: 100px;
     color: black;
 }
-.p3 {
-    /* display: flex; */
-    font-family: Montserrat Alternates;
-    font-family: Montserrat Alternates;
+
+.standard2 .p2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.standard2 .p3 {
     font-size: 24px;
-    font-weight: 600;
-    line-height: 29.26px;
-    text-align: center;
-    display: grid;
-    place-items: center;
-    height: 100px;
-   
+    font-weight: 550;
+    color: black;
+    margin-left: 1rem;
 }
 .QR {
     max-width: 100%;  /* Даем гибкость на маленьких экранах */
@@ -272,3 +252,8 @@ form img{
     margin-left: 165px;
     margin-top: 20px;
 } 
+
+.error-message{
+    width: 100vw;
+    text-align: center;
+}
