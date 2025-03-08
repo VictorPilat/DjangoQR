@@ -1,9 +1,9 @@
-Генератор QR кодів
-Список учасників команди:
-Годоваий Нікіта(TEAMLEAD)/Hodovanyj Nikita(TEAMLEAD) 
-Пілат Віктор /Pilat Viktor - 
-Гомельская Вікторія/Homelska Viktoria - https://github.com/Viktoria0228
-**README.md**
+
+## Список учасників команди:
+- **Годоваий Нікіта(TEAMLEAD)/Hodovanyj Nikita(TEAMLEAD)**
+- **Пілат Віктор /Pilat Viktor - GitHub**
+- **Гомельская Вікторія/Homelska Viktoria - https://github.com/Viktoria0228**
+
 
 # Генератор QR-кодів
 
