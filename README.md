@@ -23,7 +23,7 @@
    
 
 ## Список учасників команди:
-- **Годоваий Нікіта(TEAMLEAD)/Hodovanyj Nikita(TEAMLEAD) - https://github.com/Nikita-Hodovanyj**
+- **Годоваий Нікіта(TEAMLEAD)/Hodovanyj Nikita(TEAMLEAD) -[ https://github.com/Nikita-Hodovanyj](https://github.com/Nikita-Hodovanyj/Qrcode)**
 - **Пілат Віктор /Pilat Viktor - https://github.com/VictorPilat**
 - **Гомельская Вікторія/Homelska Viktoria - https://github.com/Viktoria0228**
 
