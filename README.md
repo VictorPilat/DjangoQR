@@ -24,8 +24,8 @@
 
 ## Список учасників команди:
 - **Годоваий Нікіта(TEAMLEAD)/Hodovanyj Nikita(TEAMLEAD) -[ https://github.com/Nikita-Hodovanyj](https://github.com/Nikita-Hodovanyj/Qrcode)**
-- **Пілат Віктор /Pilat Viktor - https://github.com/VictorPilat**
-- **Гомельская Вікторія/Homelska Viktoria - https://github.com/Viktoria0228**
+- **Пілат Віктор /Pilat Viktor -[ https://github.com/VictorPilat](https://github.com/VictorPilat/DjangoQR)**
+- **Гомельская Вікторія/Homelska Viktoria - [https://github.com/Viktoria0228](https://github.com/Viktoria0228/Qrcode)**
 
 ## Посилання на figma-дизайн та на figjam
  figma-https://www.figma.com/design/pgGPAz5W7BufNbBFlIPSpu/Home-page-qr-code?node-id=1-2&t=fGbyRXHF3sjnsYbX-
